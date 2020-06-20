@@ -1,9 +1,19 @@
+<% if logged_in? %>
 <h1>タスク一覧</h1>
 
 <ul>
     <% @tasks.each do |task| %>
-        <li><%= link_to task.id, task %> : <%= task.content %> =&gt; <%= task.status %></li>
+        <li><%= link_to task.id, task %> : <%= task.content %>　=&gt; <%= task.status %></li>
     <% end %>
 </ul>
 
 <%= link_to '新規タスクの登録', new_task_path %>
+
+<% else %>
+
+<h1>タスク管理アプリ</h1>
+
+<a href="/signup">新規登録</a>
+<a href="/login">ログイン</a>
+
+<% end %>
